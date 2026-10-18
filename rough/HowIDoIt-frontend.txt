@@ -27,8 +27,7 @@ vite.config.js
 2. delete 2 files App.css and assets folder (not need) because I will use tailwind css
 
 //PREREQUIREMENTS (install some packages and some empty folders/files)
-1.  npm install  axios    (for making http req from frontend to backend)
-2.  npm install tailwindcss @tailwindcss/vite    (using tailwindCSS) //i am following tailwindcss documentation for that
+1.  npm install tailwindcss @tailwindcss/vite    (using tailwindCSS) //i am following tailwindcss documentation for that
     configure vite plugin (update vite.config.js)
     update index.css -> @import "tailwindcss";
 
