@@ -1,0 +1,34 @@
+as client folder already created (empty)
+
+//PROJECT INTIALISATION WITH CLEANUP
+now i have to install react project using vite
+1. so i am using command
+-> npm create vite@latest . -- --template react
+-> npm install (for creating node_module)
+
+so our directory tree will look like that
+
+node_modules
+public
+rough
+ ┣ HowIDoIt-frontend.txt
+src
+ ┣ App.jsx
+ ┣ index.css
+ ┗ main.jsx
+.gitignore
+eslint.config.js
+index.html
+package-lock.json
+pacakge.json
+README.md 
+vite.config.js
+
+2. delete 2 files App.css and assets folder (not need) because I will use tailwind css
+
+//PREREQUIREMENTS (install some packages and some empty folders/files)
+1.  npm install  axios    (for making http req from frontend to backend)
+2.  npm install tailwindcss @tailwindcss/vite    (using tailwindCSS) //i am following tailwindcss documentation for that
+    configure vite plugin (update vite.config.js)
+    update index.css -> @import "tailwindcss";
+
