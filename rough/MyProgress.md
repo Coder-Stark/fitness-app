@@ -7,6 +7,7 @@
 | Phase | Focus |
 |---|---|
 | [Phase 0](#phase-0-setup) | Setup |
+| [Phase 1](#phase-1-auth-roles-seed-data) | Auth, roles, seed data |
 
 ---
 
@@ -25,3 +26,18 @@
 [Back to top](#zuryo-fitness-booking-progress-tracker)
 
 ---
+
+## Phase 1: Auth, Roles, Seed Data
+
+### Backend
+- [x] Add `JWT_SECRET`, `JWT_EXPIRES_IN` to `env.js` and `.env.sample`
+- [x] `zones` feature: model (name, center coordinates, radius)
+- [x] `users` feature: model (name, email, passwordHash, role), constants
+- [x] `trainers` feature: model (user ref, zone, location, status)
+- [x] `auth` feature: validation, service, controller, routes
+- [x] Register and login endpoints (bcrypt, JWT)
+- [x] `GET /api/auth/me`
+- [x] `jwt.middleware.js`, `role.middleware.js`, `validate.middleware.js`
+- [x] `scripts/seed.js`: 1 admin, 3-4 trainers, 3-4 customers, 2-3 zones
+- [x] Tested in Postman/Thunder Client: wrong password, wrong role, no token
+- [x] Commit

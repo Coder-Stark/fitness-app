@@ -1,14 +1,42 @@
 import { Routes, Route } from "react-router-dom";
+import AuthLayout from "../layouts/AuthLayout";
 import DashboardLayout from "../layouts/DashboardLayout";
-import HealthCheck from "../../features/health/pages/HealthCheck";
+import ProtectedRoute from "./ProtectedRoute";
+import HomeRedirect from "./HomeRedirect";
+import { ROLES } from "../../shared/constants/roles";
+import Login from "../../features/auth/pages/Login";
+import CustomerDashboard from "../../features/dashboard/pages/CustomerDashboard";
+import TrainerDashboard from "../../features/dashboard/pages/TrainerDashboard";
+import AdminDashboard from "../../features/dashboard/pages/AdminDashboard";
 
 export default function AppRoutes() {
   return (
     <Routes>
-      <Route element={<DashboardLayout />}>
-        <Route path="/" element={<HealthCheck />} />
-        <Route path="*" element={<p>Page not found</p>} />
+      <Route path="/" element={<HomeRedirect />} />
+
+      <Route element={<AuthLayout />}>
+        <Route path="/login" element={<Login />} />
       </Route>
+
+      <Route element={<ProtectedRoute allowedRoles={[ROLES.CUSTOMER]} />}>
+        <Route element={<DashboardLayout />}>
+          <Route path="/customer" element={<CustomerDashboard />} />
+        </Route>
+      </Route>
+
+      <Route element={<ProtectedRoute allowedRoles={[ROLES.TRAINER]} />}>
+        <Route element={<DashboardLayout />}>
+          <Route path="/trainer" element={<TrainerDashboard />} />
+        </Route>
+      </Route>
+
+      <Route element={<ProtectedRoute allowedRoles={[ROLES.ADMIN]} />}>
+        <Route element={<DashboardLayout />}>
+          <Route path="/admin" element={<AdminDashboard />} />
+        </Route>
+      </Route>
+
+      <Route path="*" element={<p className="p-6">Page not found</p>} />
     </Routes>
   );
 }
