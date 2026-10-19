@@ -31,3 +31,5 @@ vite.config.js
     configure vite plugin (update vite.config.js)
     update index.css -> @import "tailwindcss";
 
+//Actual coding
+see the MyProgress.md
