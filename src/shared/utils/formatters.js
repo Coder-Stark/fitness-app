@@ -16,4 +16,12 @@ const slotTime = new Intl.DateTimeFormat("en-IN", {
 
 export const formatPaise = (paise) => rupees.format(paise / 100);
 
+const timeOnly = new Intl.DateTimeFormat("en-IN", {
+  hour: "numeric",
+  minute: "2-digit",
+  timeZone: "Asia/Kolkata",
+});
+
 export const formatSlotTime = (isoString) => `${slotTime.format(new Date(isoString))} IST`;
+
+export const formatTime = (isoString) => timeOnly.format(new Date(isoString));

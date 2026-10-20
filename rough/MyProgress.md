@@ -9,6 +9,7 @@
 | [Phase 0](#phase-0-setup) | Setup |
 | [Phase 1](#phase-1-auth-roles-seed-data) | Auth, roles, seed data |
 | [Phase 2](#phase-2-pricing-engine) | Pricing engine |
+| [Phase 3](#phase-3-availability-and-assignment) | Availability and assignment |
 
 ---
 
@@ -75,6 +76,33 @@
 ### Frontend
 - [x] `pricing.api.js`
 - [x] `PriceBreakdown` component (shows ₹ amounts)
+- [x] Commit
+
+[Back to top](#zuryo-fitness-booking-progress-tracker)
+
+---
+
+## Phase 3: Availability and Assignment
+
+### Backend
+- [x] `availability` model (trainer working days and hours)
+- [x] `bookings` model (customer, trainer, start, end, status, price snapshot)
+- [x] `GET /api/slots` (only slots with at least one free eligible trainer)
+- [x] Assignment function: zone, then availability, then no overlap
+- [x] Preferred trainer used only if eligible and free
+- [x] Tie-breaker (nearest, then least busy)
+- [x] Store the assignment reason on the booking
+- [x] Double-booking protection (unique index or transaction)
+- [x] Instant booking (starts within 60 min)
+- [x] Scheduled booking
+- [x] "No trainer available" response with alternative slots
+- [x] Commit
+
+### Frontend
+- [x] Booking mode screen (instant / scheduled)
+- [x] Slot picker
+- [x] Preferred trainer dropdown
+- [x] "No trainer available" state with alternatives
 - [x] Commit
 
 [Back to top](#zuryo-fitness-booking-progress-tracker)

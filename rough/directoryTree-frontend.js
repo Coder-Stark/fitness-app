@@ -4,6 +4,7 @@ public
 rough
 ┣ directoryTree-frontend.js
 ┣ HowIDoIt-frontend.txt
+
 src
  ┣ app
  ┃ ┣ layouts
@@ -29,11 +30,31 @@ src
  ┃ ┃ ┃ ┗ useAuth.js
  ┃ ┃ ┗ pages
  ┃ ┃ ┃ ┗ Login.jsx
- ┃ ┗ dashboard
+ ┃ ┣ booking
+ ┃ ┃ ┣ api
+ ┃ ┃ ┃ ┗ booking.api.js
+ ┃ ┃ ┣ components
+ ┃ ┃ ┃ ┣ BookingConfirmation.jsx
+ ┃ ┃ ┃ ┣ BookingReview.jsx
+ ┃ ┃ ┃ ┣ DateStrip.jsx
+ ┃ ┃ ┃ ┣ InstantPicker.jsx
+ ┃ ┃ ┃ ┣ ModeSelector.jsx
+ ┃ ┃ ┃ ┣ NoTrainerNotice.jsx
+ ┃ ┃ ┃ ┣ ScheduledPicker.jsx
+ ┃ ┃ ┃ ┣ SlotGrid.jsx
+ ┃ ┃ ┃ ┗ TrainerSelect.jsx
+ ┃ ┃ ┗ pages
+ ┃ ┃ ┃ ┗ NewBooking.jsx
+ ┃ ┣ dashboard
  ┃ ┃ ┗ pages
  ┃ ┃ ┃ ┣ AdminDashboard.jsx
  ┃ ┃ ┃ ┣ CustomerDashboard.jsx
  ┃ ┃ ┃ ┗ TrainerDashboard.jsx
+ ┃ ┗ pricing
+ ┃ ┃ ┣ api
+ ┃ ┃ ┃ ┗ pricing.api.js
+ ┃ ┃ ┗ components
+ ┃ ┃ ┃ ┗ PriceBreakdown.jsx
  ┣ shared
  ┃ ┣ api
  ┃ ┃ ┗ axios.js
@@ -48,9 +69,12 @@ src
  ┃ ┣ styles
  ┃ ┃ ┗ globals.css
  ┃ ┗ utils
- ┃ ┃ ┗ errors.js
+ ┃ ┃ ┣ dates.js
+ ┃ ┃ ┣ errors.js
+ ┃ ┃ ┗ formatters.js
  ┣ App.jsx
  ┗ main.jsx
+
 .env
 .env.sample
 .gitignore
