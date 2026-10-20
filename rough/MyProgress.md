@@ -8,6 +8,7 @@
 |---|---|
 | [Phase 0](#phase-0-setup) | Setup |
 | [Phase 1](#phase-1-auth-roles-seed-data) | Auth, roles, seed data |
+| [Phase 2](#phase-2-pricing-engine) | Pricing engine |
 
 ---
 
@@ -41,3 +42,41 @@
 - [x] `scripts/seed.js`: 1 admin, 3-4 trainers, 3-4 customers, 2-3 zones
 - [x] Tested in Postman/Thunder Client: wrong password, wrong role, no token
 - [x] Commit
+
+
+### Frontend
+- [x] `AuthContext`, `AuthProvider`, `useAuth`
+- [x] Login page and `LoginForm`
+- [x] Demo account buttons (Customer / Trainer / Admin)
+- [x] `ProtectedRoute` with role check
+- [x] Role-based redirect after login
+- [x] Empty Customer, Trainer and Admin dashboards
+- [x] Logout, token persisted across refresh
+- [x] Delete the temporary `health` feature
+- [x] Commit
+
+[Back to top](#zuryo-fitness-booking-progress-tracker)
+
+---
+
+## Phase 2: Pricing Engine
+
+### Backend
+- [x] `pricing.config.js` (normal, peak, commission %, peak windows)
+- [x] `calculatePrice(slotStart)` returns `{ base, commission, total, isPeak }` in paise
+- [x] `POST /api/pricing/quote` with validation
+<!-- - [x] Vitest + Supertest installed, `test` script added -->
+- [x] Test: normal slot = 43890 paise
+- [x] Test: peak slot = 54890 paise
+- [x] Test: rounding edge cases
+- [x] Test: peak window boundaries (start and end times)
+- [x] Commit
+
+### Frontend
+- [x] `pricing.api.js`
+- [x] `PriceBreakdown` component (shows ₹ amounts)
+- [x] Commit
+
+[Back to top](#zuryo-fitness-booking-progress-tracker)
+
+---
