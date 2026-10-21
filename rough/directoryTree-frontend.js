@@ -40,6 +40,7 @@ src
  ┃ ┃ ┃ ┣ InstantPicker.jsx
  ┃ ┃ ┃ ┣ ModeSelector.jsx
  ┃ ┃ ┃ ┣ NoTrainerNotice.jsx
+ ┃ ┃ ┃ ┣ PaymentMethodSelect.jsx
  ┃ ┃ ┃ ┣ ScheduledPicker.jsx
  ┃ ┃ ┃ ┣ SlotGrid.jsx
  ┃ ┃ ┃ ┗ TrainerSelect.jsx
@@ -50,6 +51,17 @@ src
  ┃ ┃ ┃ ┣ AdminDashboard.jsx
  ┃ ┃ ┃ ┣ CustomerDashboard.jsx
  ┃ ┃ ┃ ┗ TrainerDashboard.jsx
+ ┃ ┣ packages
+ ┃ ┃ ┣ api
+ ┃ ┃ ┃ ┗ package.api.js
+ ┃ ┃ ┣ components
+ ┃ ┃ ┃ ┣ PackageList.jsx
+ ┃ ┃ ┃ ┣ PackageSummaryCard.jsx
+ ┃ ┃ ┃ ┗ PlanCard.jsx
+ ┃ ┃ ┣ hooks
+ ┃ ┃ ┃ ┗ usePackageSummary.js
+ ┃ ┃ ┗ pages
+ ┃ ┃ ┃ ┗ MyPackages.jsx
  ┃ ┗ pricing
  ┃ ┃ ┣ api
  ┃ ┃ ┃ ┗ pricing.api.js
@@ -65,13 +77,15 @@ src
  ┃ ┃ ┃ ┣ Button.jsx
  ┃ ┃ ┃ ┗ Spinner.jsx
  ┃ ┣ constants
+ ┃ ┃ ┣ payments.js
  ┃ ┃ ┗ roles.js
  ┃ ┣ styles
  ┃ ┃ ┗ globals.css
  ┃ ┗ utils
  ┃ ┃ ┣ dates.js
  ┃ ┃ ┣ errors.js
- ┃ ┃ ┗ formatters.js
+ ┃ ┃ ┣ formatters.js
+ ┃ ┃ ┗ idempotency.js
  ┣ App.jsx
  ┗ main.jsx
 

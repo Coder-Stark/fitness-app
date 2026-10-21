@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import { formatSlotTime } from "../../../shared/utils/formatters";
+import { formatPaise, formatSlotTime } from "../../../shared/utils/formatters";
 import Button from "../../../shared/components/ui/Button";
 import PriceBreakdown from "../../pricing/components/PriceBreakdown";
 
-export default function BookingConfirmation({ booking, onBookAnother }) {
-  const { trainer, assignment, price, startTime, mode } = booking;
+export default function BookingConfirmation({ booking, replayed, onBookAnother }) {
+  const { trainer, assignment, price, startTime, mode, payment } = booking;
   const preferredMissed = assignment.preferredTrainer && !assignment.preferredHonoured;
 
   return (
@@ -14,6 +14,11 @@ export default function BookingConfirmation({ booking, onBookAnother }) {
         <p className="text-sm text-green-700">
           {formatSlotTime(startTime)} · {mode} session
         </p>
+        {replayed && (
+          <p className="mt-2 text-sm text-green-700">
+            This booking was already created by an earlier request, so you were not charged again.
+          </p>
+        )}
       </div>
 
       <div className="space-y-1 rounded-lg border border-gray-200 bg-white p-4 text-sm">
@@ -22,6 +27,12 @@ export default function BookingConfirmation({ booking, onBookAnother }) {
           <strong>{trainer?.name}</strong>
         </p>
         <p className="text-gray-500">{assignment.summary}</p>
+        <p>
+          <span className="text-gray-500">Payment: </span>
+          {payment.method === "package"
+            ? "1 package session used"
+            : `${formatPaise(payment.amountPaid)} paid by card (sandbox)`}
+        </p>
         {preferredMissed && (
           <p className="rounded-md bg-amber-50 px-3 py-2 text-amber-800">
             Your preferred trainer wasn't available, so the nearest trainer was assigned.

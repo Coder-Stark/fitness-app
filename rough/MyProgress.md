@@ -10,7 +10,7 @@
 | [Phase 1](#phase-1-auth-roles-seed-data) | Auth, roles, seed data |
 | [Phase 2](#phase-2-pricing-engine) | Pricing engine |
 | [Phase 3](#phase-3-availability-and-assignment) | Availability and assignment |
-
+| [Phase 4](#phase-4-checkout-payment-packages) | Checkout, payment, packages |
 ---
 
 ## Phase 0: Setup
@@ -103,6 +103,27 @@
 - [x] Slot picker
 - [x] Preferred trainer dropdown
 - [x] "No trainer available" state with alternatives
+- [x] Commit
+
+[Back to top](#zuryo-fitness-booking-progress-tracker)
+
+---
+
+## Phase 4: Checkout, Payment, Packages
+
+### Backend
+- [x] `packages` model (purchased, used, remaining)
+- [x] `payments` model (idempotency key, status, amount)
+- [x] Price computed on the server, client amount ignored
+- [x] Simulated payment endpoint with idempotency key
+- [x] Package deduction exactly once per booking
+- [x] Cancel flow restores the session (documented refund rule)
+- [x] Commit
+
+### Frontend
+- [x] Checkout page with price breakdown and Pay button
+- [x] Booking confirmation page
+- [x] Package page (purchased / used / remaining)
 - [x] Commit
 
 [Back to top](#zuryo-fitness-booking-progress-tracker)

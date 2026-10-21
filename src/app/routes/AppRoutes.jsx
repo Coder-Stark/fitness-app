@@ -7,6 +7,7 @@ import { ROLES } from "../../shared/constants/roles";
 import Login from "../../features/auth/pages/Login";
 import CustomerDashboard from "../../features/dashboard/pages/CustomerDashboard";
 import NewBooking from "../../features/booking/pages/NewBooking";
+import MyPackages from "../../features/packages/pages/MyPackages";
 import TrainerDashboard from "../../features/dashboard/pages/TrainerDashboard";
 import AdminDashboard from "../../features/dashboard/pages/AdminDashboard";
 
@@ -23,6 +24,7 @@ export default function AppRoutes() {
         <Route element={<DashboardLayout />}>
           <Route path="/customer" element={<CustomerDashboard />} />
           <Route path="/customer/book" element={<NewBooking />} />
+          <Route path="/customer/packages" element={<MyPackages />} />
         </Route>
       </Route>
 
