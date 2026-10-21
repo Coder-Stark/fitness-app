@@ -26,9 +26,17 @@ export default function CustomerDashboard() {
         </div>
         {packageData && <PackageSummaryCard summary={packageData.summary} />}
       </section>
-      <p className="mt-6 rounded-md border border-dashed border-gray-300 p-6 text-center text-gray-500">
-        Booking history will appear here.
-      </p>
+      <section className="mt-6 rounded-lg border border-gray-200 bg-white p-4">
+        <div className="flex items-center justify-between">
+          <h2 className="font-medium">My bookings</h2>
+          <Link to="/customer/bookings" className="text-sm text-gray-500 underline">
+            View all
+          </Link>
+        </div>
+        <p className="mt-1 text-sm text-gray-500">
+          See upcoming, completed and cancelled sessions, or reschedule and cancel them.
+        </p>
+      </section>
     </div>
   );
 }

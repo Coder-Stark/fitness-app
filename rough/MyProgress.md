@@ -11,6 +11,7 @@
 | [Phase 2](#phase-2-pricing-engine) | Pricing engine |
 | [Phase 3](#phase-3-availability-and-assignment) | Availability and assignment |
 | [Phase 4](#phase-4-checkout-payment-packages) | Checkout, payment, packages |
+| [Phase 5](#phase-5-booking-management-and-notifications) | Booking management, notifications |
 ---
 
 ## Phase 0: Setup
@@ -124,6 +125,30 @@
 - [x] Checkout page with price breakdown and Pay button
 - [x] Booking confirmation page
 - [x] Package page (purchased / used / remaining)
+- [x] Commit
+
+[Back to top](#zuryo-fitness-booking-progress-tracker)
+
+---
+
+## Phase 5: Booking Management and Notifications
+
+### Backend
+- [x] Cancel endpoint
+- [x] Reschedule endpoint (re-runs assignment and overlap checks)
+- [x] `notifications` model, service, routes
+- [x] Notification created on assigned, cancelled and rescheduled
+- [x] `GET /api/notifications`, mark as read
+- [x] reschedule overlap rejected
+- [x] notification created on each event
+- [x] Commit
+
+### Frontend
+- [x] My Bookings tabs (upcoming / completed / cancelled-rescheduled)
+- [x] Cancel and reschedule buttons
+- [x] Trainer dashboard: assigned sessions list
+- [x] Notification bell with polling (5-10 s)
+- [x] Customer and trainer views update after a change
 - [x] Commit
 
 [Back to top](#zuryo-fitness-booking-progress-tracker)

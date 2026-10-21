@@ -46,11 +46,38 @@ src
  ┃ ┃ ┃ ┗ TrainerSelect.jsx
  ┃ ┃ ┗ pages
  ┃ ┃ ┃ ┗ NewBooking.jsx
+ ┃ ┣ bookings
+ ┃ ┃ ┣ api
+ ┃ ┃ ┃ ┗ bookings.api.js
+ ┃ ┃ ┣ components
+ ┃ ┃ ┃ ┣ AssignedBookingCard.jsx
+ ┃ ┃ ┃ ┣ AssignedBookings.jsx
+ ┃ ┃ ┃ ┣ BookingCard.jsx
+ ┃ ┃ ┃ ┣ BookingTabs.jsx
+ ┃ ┃ ┃ ┣ CancelPanel.jsx
+ ┃ ┃ ┃ ┗ ReschedulePanel.jsx
+ ┃ ┃ ┣ hooks
+ ┃ ┃ ┃ ┣ useAssignedBookings.js
+ ┃ ┃ ┃ ┗ useMyBookings.js
+ ┃ ┃ ┣ pages
+ ┃ ┃ ┃ ┗ MyBookings.jsx
+ ┃ ┃ ┗ utils
+ ┃ ┃ ┃ ┗ bookingStatus.js
  ┃ ┣ dashboard
  ┃ ┃ ┗ pages
  ┃ ┃ ┃ ┣ AdminDashboard.jsx
  ┃ ┃ ┃ ┣ CustomerDashboard.jsx
  ┃ ┃ ┃ ┗ TrainerDashboard.jsx
+ ┃ ┣ notifications
+ ┃ ┃ ┣ api
+ ┃ ┃ ┃ ┗ notification.api.js
+ ┃ ┃ ┣ components
+ ┃ ┃ ┃ ┗ NotificationBell.jsx
+ ┃ ┃ ┣ context
+ ┃ ┃ ┃ ┣ NotificationsContext.js
+ ┃ ┃ ┃ ┗ NotificationsProvider.jsx
+ ┃ ┃ ┗ hooks
+ ┃ ┃ ┃ ┗ useNotifications.js
  ┃ ┣ packages
  ┃ ┃ ┣ api
  ┃ ┃ ┃ ┗ package.api.js
@@ -75,10 +102,15 @@ src
  ┃ ┃ ┃ ┗ Navbar.jsx
  ┃ ┃ ┗ ui
  ┃ ┃ ┃ ┣ Button.jsx
- ┃ ┃ ┃ ┗ Spinner.jsx
+ ┃ ┃ ┃ ┣ Spinner.jsx
+ ┃ ┃ ┃ ┗ StatusBadge.jsx
  ┃ ┣ constants
+ ┃ ┃ ┣ bookings.js
  ┃ ┃ ┣ payments.js
  ┃ ┃ ┗ roles.js
+ ┃ ┣ hooks
+ ┃ ┃ ┣ useNow.js
+ ┃ ┃ ┗ usePolling.js
  ┃ ┣ styles
  ┃ ┃ ┗ globals.css
  ┃ ┗ utils

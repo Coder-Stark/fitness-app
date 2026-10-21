@@ -1,5 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../../features/auth/hooks/useAuth";
+import NotificationBell from "../../../features/notifications/components/NotificationBell";
+import { ROLES } from "../../constants/roles";
 import Button from "../ui/Button";
 
 export default function Navbar() {
@@ -20,6 +22,7 @@ export default function Navbar() {
 
         {user && (
           <div className="flex items-center gap-3">
+            {user.role === ROLES.TRAINER && <NotificationBell />}
             <div className="text-right text-sm leading-tight">
               <p className="font-medium">{user.name}</p>
               <p className="capitalize text-gray-500">{user.role}</p>
