@@ -1,11 +1,16 @@
 import { BOOKING_STATUS } from "../../../shared/constants/bookings";
-import { formatSlotTime } from "../../../shared/utils/formatters";
+import { formatSlotTime, formatTime } from "../../../shared/utils/formatters";
 import StatusBadge from "../../../shared/components/ui/StatusBadge";
+import LivePhaseBadge from "../../sessions/components/LivePhaseBadge";
+import SessionTimer from "../../sessions/components/SessionTimer";
+import StartSessionButton from "../../sessions/components/StartSessionButton";
 
-export default function AssignedBookingCard({ booking }) {
+export default function AssignedBookingCard({ booking, onChanged }) {
   const history = booking.rescheduleHistory ?? [];
   const lastMove = history[history.length - 1];
   const isCancelled = booking.status === BOOKING_STATUS.CANCELLED;
+  const isConfirmed = booking.status === BOOKING_STATUS.CONFIRMED;
+  const isRunning = booking.status === BOOKING_STATUS.IN_PROGRESS;
 
   return (
     <li className="space-y-2 rounded-lg border border-gray-200 bg-white p-4">
@@ -16,7 +21,7 @@ export default function AssignedBookingCard({ booking }) {
             {formatSlotTime(booking.startTime)} · 60 minutes · {booking.mode}
           </p>
         </div>
-        <StatusBadge status={booking.status} />
+        {isRunning ? <LivePhaseBadge booking={booking} /> : <StatusBadge status={booking.phase} />}
       </div>
 
       {lastMove && (
@@ -30,6 +35,19 @@ export default function AssignedBookingCard({ booking }) {
         <p className="rounded-md bg-red-50 px-3 py-2 text-xs text-red-800">
           Cancelled by the customer on {formatSlotTime(booking.cancellation.cancelledAt)}.
           {booking.cancellation.reason ? ` Reason: ${booking.cancellation.reason}` : ""}
+        </p>
+      )}
+
+      {isConfirmed && <StartSessionButton booking={booking} onStarted={onChanged} />}
+
+      {isRunning && booking.timer && (
+        <SessionTimer booking={booking} role="trainer" onFinished={onChanged} />
+      )}
+
+      {booking.status === BOOKING_STATUS.COMPLETED && booking.timer && (
+        <p className="rounded-md bg-green-50 px-3 py-2 text-xs text-green-800">
+          Session ran from {formatTime(booking.timer.startedAt)} to{" "}
+          {formatTime(booking.timer.endsAt)} IST.
         </p>
       )}
     </li>

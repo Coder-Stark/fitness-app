@@ -10,9 +10,12 @@ export const TABS = [
   { key: "cancelled", label: "Cancelled" },
 ];
 
+// The server works out the phase from the saved timer, so a session that has just ended
+// moves to Completed even before the background worker updates its status
 function tabOf(booking) {
-  if (booking.status === BOOKING_STATUS.CANCELLED) return "cancelled";
-  if (booking.status === BOOKING_STATUS.COMPLETED) return "completed";
+  const phase = booking.phase ?? booking.status;
+  if (phase === "cancelled") return "cancelled";
+  if (phase === "completed") return "completed";
   return "upcoming";
 }
 

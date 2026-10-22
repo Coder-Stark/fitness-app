@@ -12,7 +12,7 @@ const EMPTY_TEXT = {
 };
 
 export default function AssignedBookings() {
-  const { bookings, error } = useAssignedBookings();
+  const { bookings, error, reload } = useAssignedBookings();
   const [tab, setTab] = useState("upcoming");
 
   const groups = useMemo(() => (bookings ? groupBookings(bookings) : null), [bookings]);
@@ -44,7 +44,7 @@ export default function AssignedBookings() {
           ) : (
             <ul className="space-y-3">
               {groups[tab].map((booking) => (
-                <AssignedBookingCard key={booking.id} booking={booking} />
+                <AssignedBookingCard key={booking.id} booking={booking} onChanged={reload} />
               ))}
             </ul>
           )}

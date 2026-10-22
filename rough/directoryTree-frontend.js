@@ -89,11 +89,33 @@ src
  ┃ ┃ ┃ ┗ usePackageSummary.js
  ┃ ┃ ┗ pages
  ┃ ┃ ┃ ┗ MyPackages.jsx
- ┃ ┗ pricing
+ ┃ ┣ pricing
  ┃ ┃ ┣ api
  ┃ ┃ ┃ ┗ pricing.api.js
  ┃ ┃ ┗ components
  ┃ ┃ ┃ ┗ PriceBreakdown.jsx
+ ┃ ┣ sessions
+ ┃ ┃ ┣ api
+ ┃ ┃ ┃ ┗ session.api.js
+ ┃ ┃ ┣ components
+ ┃ ┃ ┃ ┣ ActiveSessionBanner.jsx
+ ┃ ┃ ┃ ┣ LivePhaseBadge.jsx
+ ┃ ┃ ┃ ┣ SessionTimer.jsx
+ ┃ ┃ ┃ ┗ StartSessionButton.jsx
+ ┃ ┃ ┣ hooks
+ ┃ ┃ ┃ ┗ usePhaseBuzzer.js
+ ┃ ┃ ┗ utils
+ ┃ ┃ ┃ ┣ audio.js
+ ┃ ┃ ┃ ┗ sessionTime.js
+ ┃ ┗ time
+ ┃ ┃ ┣ api
+ ┃ ┃ ┃ ┗ time.api.js
+ ┃ ┃ ┣ context
+ ┃ ┃ ┃ ┣ ServerTimeContext.js
+ ┃ ┃ ┃ ┗ ServerTimeProvider.jsx
+ ┃ ┃ ┗ hooks
+ ┃ ┃ ┃ ┣ useServerNow.js
+ ┃ ┃ ┃ ┗ useServerTime.js
  ┣ shared
  ┃ ┣ api
  ┃ ┃ ┗ axios.js
@@ -107,7 +129,8 @@ src
  ┃ ┣ constants
  ┃ ┃ ┣ bookings.js
  ┃ ┃ ┣ payments.js
- ┃ ┃ ┗ roles.js
+ ┃ ┃ ┣ roles.js
+ ┃ ┃ ┗ sessions.js
  ┃ ┣ hooks
  ┃ ┃ ┣ useNow.js
  ┃ ┃ ┗ usePolling.js

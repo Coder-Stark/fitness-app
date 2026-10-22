@@ -22,7 +22,7 @@ export default function Navbar() {
 
         {user && (
           <div className="flex items-center gap-3">
-            {user.role === ROLES.TRAINER && <NotificationBell />}
+            {user.role !== ROLES.ADMIN && <NotificationBell />}
             <div className="text-right text-sm leading-tight">
               <p className="font-medium">{user.name}</p>
               <p className="capitalize text-gray-500">{user.role}</p>

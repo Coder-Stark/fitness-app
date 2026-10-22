@@ -27,5 +27,5 @@ export function useAssignedBookings() {
 
   usePolling(reload, POLL_INTERVAL_MS);
 
-  return { bookings, error };
+  return { bookings, error, reload };
 }

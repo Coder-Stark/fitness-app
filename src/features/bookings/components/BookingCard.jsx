@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { BOOKING_STATUS } from "../../../shared/constants/bookings";
-import { formatSlotTime } from "../../../shared/utils/formatters";
+import { formatSlotTime, formatTime } from "../../../shared/utils/formatters";
 import Button from "../../../shared/components/ui/Button";
 import StatusBadge from "../../../shared/components/ui/StatusBadge";
+import LivePhaseBadge from "../../sessions/components/LivePhaseBadge";
+import SessionTimer from "../../sessions/components/SessionTimer";
 import { canCancel, describeOutcome, describePayment, rescheduleState } from "../utils/bookingStatus";
 import CancelPanel from "./CancelPanel";
 import ReschedulePanel from "./ReschedulePanel";
@@ -12,6 +14,8 @@ export default function BookingCard({ booking, now, onChanged }) {
 
   const isConfirmed = booking.status === BOOKING_STATUS.CONFIRMED;
   const isCancelled = booking.status === BOOKING_STATUS.CANCELLED;
+  const isRunning = booking.status === BOOKING_STATUS.IN_PROGRESS;
+  const isCompleted = booking.status === BOOKING_STATUS.COMPLETED;
   const timePassed = isConfirmed && new Date(booking.startTime).getTime() <= now;
   const cancellable = canCancel(booking, now);
   const reschedule = rescheduleState(booking, now);
@@ -62,7 +66,7 @@ export default function BookingCard({ booking, now, onChanged }) {
               Time passed
             </span>
           )}
-          <StatusBadge status={booking.status} />
+          {isRunning ? <LivePhaseBadge booking={booking} /> : <StatusBadge status={booking.phase} />}
         </div>
       </div>
 
@@ -95,6 +99,17 @@ export default function BookingCard({ booking, now, onChanged }) {
           </p>
           {booking.cancellation.reason && <p>Reason: {booking.cancellation.reason}</p>}
         </div>
+      )}
+
+      {isRunning && booking.timer && (
+        <SessionTimer booking={booking} role="customer" onFinished={() => onChanged(null)} />
+      )}
+
+      {isCompleted && booking.timer && (
+        <p className="rounded-md bg-green-50 px-3 py-2 text-xs text-green-800">
+          Session ran from {formatTime(booking.timer.startedAt)} to{" "}
+          {formatTime(booking.timer.endsAt)} IST.
+        </p>
       )}
 
       {isConfirmed && !timePassed && panel === null && (

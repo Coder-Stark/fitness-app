@@ -15,8 +15,8 @@ const POLL_INTERVAL_MS = 8_000;
 
 export default function NotificationsProvider({ children }) {
   const { user } = useAuth();
-  // Only trainers are notified in this version
-  const enabled = user?.role === ROLES.TRAINER;
+  // Trainers and customers are notified. Admins are not
+  const enabled = user?.role === ROLES.TRAINER || user?.role === ROLES.CUSTOMER;
 
   const [unreadCount, setUnreadCount] = useState(0);
   const [items, setItems] = useState([]);

@@ -12,6 +12,8 @@
 | [Phase 3](#phase-3-availability-and-assignment) | Availability and assignment |
 | [Phase 4](#phase-4-checkout-payment-packages) | Checkout, payment, packages |
 | [Phase 5](#phase-5-booking-management-and-notifications) | Booking management, notifications |
+| [Phase 6](#phase-6-session-timer) | Session timer |
+
 ---
 
 ## Phase 0: Setup
@@ -149,6 +151,28 @@
 - [x] Trainer dashboard: assigned sessions list
 - [x] Notification bell with polling (5-10 s)
 - [x] Customer and trainer views update after a change
+- [x] Commit
+
+[Back to top](#zuryo-fitness-booking-progress-tracker)
+
+---
+
+## Phase 6: Session Timer
+
+### Backend
+- [x] Fields: `startedAt`, `warningAt`, `endsAt`, `status`
+- [x] `POST /api/sessions/:id/start` (trainer only, server timestamps)
+- [x] Background worker for the 55(2)-min warning and 60(4)-min completion
+- [x] Worker is idempotent and recovers after a server restart
+- [x] `GET /api/time` for clock offset
+- [x] Commit
+
+### Frontend
+- [x] `useServerTime` hook (clock offset)
+- [x] Trainer: Start button, countdown from server `endsAt`
+- [x] Buzzer/alert at 55(2) and 60(4) min
+- [x] Customer: live status badge
+- [x] Timer survives page refresh
 - [x] Commit
 
 [Back to top](#zuryo-fitness-booking-progress-tracker)
