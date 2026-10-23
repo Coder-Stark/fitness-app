@@ -13,6 +13,7 @@
 | [Phase 4](#phase-4-checkout-payment-packages) | Checkout, payment, packages |
 | [Phase 5](#phase-5-booking-management-and-notifications) | Booking management, notifications |
 | [Phase 6](#phase-6-session-timer) | Session timer |
+| [Phase 7](#phase-7-fitness-profile-session-records-admin-dashboard) | Fitness profile, session records, admin dashboard |
 
 ---
 
@@ -173,6 +174,37 @@
 - [x] Buzzer/alert at 55(2) and 60(4) min
 - [x] Customer: live status badge
 - [x] Timer survives page refresh
+- [x] Commit
+
+[Back to top](#zuryo-fitness-booking-progress-tracker)
+
+---
+
+## Phase 7: Fitness Profile, Session Records, Admin Dashboard
+
+### Backend
+- [x] Fitness profile model (age, weight, goals, level, preferences) with validation
+- [x] `GET/PUT /api/fitness-profile/me`
+- [x] Session record model (exercises, duration, trainer notes, feedback, suggested next workout)
+- [x] `PUT /api/session-records/:id/trainer-notes` (completed sessions only)
+- [x] `PUT /api/session-records/:id/feedback`
+- [x] `GET /api/session-records/:id`, `/mine`, `/assigned`
+- [x] Trainer reads the customer's assessment only for own, non-cancelled bookings
+- [x] `GET /api/admin/summary`
+- [x] `GET /api/admin/bookings` (trainer, assignment reason, price, payment, status)
+- [x] Admin filters: status, date range, paging
+- [x] Admin-only access verified
+- [x] Seed: sample profiles (Nisha and Isha have none)
+- [x] Postman folders tested: fitnessProfiles, sessionRecords, admin
+- [x] Test timings restored (60 (4) min session, 55 (2) min warning)
+- [x] Commit
+
+### Frontend
+- [x] Profile form with first-login prompt (skip allowed)
+- [x] Profile summary card on the customer dashboard
+- [x] Session history page with feedback form
+- [x] Trainer panel: customer assessment and session notes form
+- [x] Admin dashboard: summary cards, bookings table, filters, details row
 - [x] Commit
 
 [Back to top](#zuryo-fitness-booking-progress-tracker)

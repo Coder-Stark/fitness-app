@@ -9,6 +9,8 @@ import CustomerDashboard from "../../features/dashboard/pages/CustomerDashboard"
 import NewBooking from "../../features/booking/pages/NewBooking";
 import MyPackages from "../../features/packages/pages/MyPackages";
 import MyBookings from "../../features/bookings/pages/MyBookings";
+import FitnessProfilePage from "../../features/fitness-profile/pages/FitnessProfilePage";
+import SessionHistory from "../../features/session-records/pages/SessionHistory";
 import TrainerDashboard from "../../features/dashboard/pages/TrainerDashboard";
 import AdminDashboard from "../../features/dashboard/pages/AdminDashboard";
 
@@ -27,6 +29,8 @@ export default function AppRoutes() {
           <Route path="/customer/book" element={<NewBooking />} />
           <Route path="/customer/packages" element={<MyPackages />} />
           <Route path="/customer/bookings" element={<MyBookings />} />
+          <Route path="/customer/profile" element={<FitnessProfilePage />} />
+          <Route path="/customer/history" element={<SessionHistory />} />
         </Route>
       </Route>
 

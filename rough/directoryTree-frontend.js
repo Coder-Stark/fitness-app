@@ -17,6 +17,17 @@ src
  ┃ ┃ ┣ HomeRedirect.jsx
  ┃ ┃ ┗ ProtectedRoute.jsx
  ┣ features
+ ┃ ┣ admin
+ ┃ ┃ ┣ api
+ ┃ ┃ ┃ ┗ admin.api.js
+ ┃ ┃ ┣ components
+ ┃ ┃ ┃ ┣ AdminBookingRow.jsx
+ ┃ ┃ ┃ ┣ AdminBookingsTable.jsx
+ ┃ ┃ ┃ ┣ AdminFilters.jsx
+ ┃ ┃ ┃ ┗ AdminSummary.jsx
+ ┃ ┃ ┗ hooks
+ ┃ ┃ ┃ ┣ useAdminBookings.js
+ ┃ ┃ ┃ ┗ useAdminSummary.js
  ┃ ┣ auth
  ┃ ┃ ┣ api
  ┃ ┃ ┃ ┗ auth.api.js
@@ -68,6 +79,19 @@ src
  ┃ ┃ ┃ ┣ AdminDashboard.jsx
  ┃ ┃ ┃ ┣ CustomerDashboard.jsx
  ┃ ┃ ┃ ┗ TrainerDashboard.jsx
+ ┃ ┣ fitness-profile
+ ┃ ┃ ┣ api
+ ┃ ┃ ┃ ┗ fitnessProfile.api.js
+ ┃ ┃ ┣ components
+ ┃ ┃ ┃ ┣ ProfileForm.jsx
+ ┃ ┃ ┃ ┗ ProfileSummaryCard.jsx
+ ┃ ┃ ┣ hooks
+ ┃ ┃ ┃ ┗ useFitnessProfile.js
+ ┃ ┃ ┣ pages
+ ┃ ┃ ┃ ┗ FitnessProfilePage.jsx
+ ┃ ┃ ┗ utils
+ ┃ ┃ ┃ ┣ profileForm.js
+ ┃ ┃ ┃ ┗ profilePrompt.js
  ┃ ┣ notifications
  ┃ ┃ ┣ api
  ┃ ┃ ┃ ┗ notification.api.js
@@ -94,6 +118,27 @@ src
  ┃ ┃ ┃ ┗ pricing.api.js
  ┃ ┃ ┗ components
  ┃ ┃ ┃ ┗ PriceBreakdown.jsx
+ ┃ ┣ session-records
+ ┃ ┃ ┣ api
+ ┃ ┃ ┃ ┗ sessionRecord.api.js
+ ┃ ┃ ┣ components
+ ┃ ┃ ┃ ┣ AssessmentCard.jsx
+ ┃ ┃ ┃ ┣ FeedbackForm.jsx
+ ┃ ┃ ┃ ┣ FeedbackView.jsx
+ ┃ ┃ ┃ ┣ SessionHistoryCard.jsx
+ ┃ ┃ ┃ ┣ StarInput.jsx
+ ┃ ┃ ┃ ┣ Stars.jsx
+ ┃ ┃ ┃ ┣ TrainerNotesForm.jsx
+ ┃ ┃ ┃ ┣ TrainerNotesView.jsx
+ ┃ ┃ ┃ ┗ TrainerSessionPanel.jsx
+ ┃ ┃ ┣ hooks
+ ┃ ┃ ┃ ┣ useMySessions.js
+ ┃ ┃ ┃ ┗ useSessionRecord.js
+ ┃ ┃ ┣ pages
+ ┃ ┃ ┃ ┗ SessionHistory.jsx
+ ┃ ┃ ┗ utils
+ ┃ ┃ ┃ ┣ exercise.js
+ ┃ ┃ ┃ ┗ notesPayload.js
  ┃ ┣ sessions
  ┃ ┃ ┣ api
  ┃ ┃ ┃ ┗ session.api.js
@@ -128,6 +173,7 @@ src
  ┃ ┃ ┃ ┗ StatusBadge.jsx
  ┃ ┣ constants
  ┃ ┃ ┣ bookings.js
+ ┃ ┃ ┣ fitness.js
  ┃ ┃ ┣ payments.js
  ┃ ┃ ┣ roles.js
  ┃ ┃ ┗ sessions.js
