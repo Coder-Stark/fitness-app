@@ -15,6 +15,7 @@
 | [Phase 6](#phase-6-session-timer) | Session timer |
 | [Phase 7](#phase-7-fitness-profile-session-records-admin-dashboard) | Fitness profile, session records, admin dashboard |
 | [Phase 8](#phase-8-trainer-availability-and-workout-recommendations) | Trainer availability, workout recommendations |
+| [Phase 9](#phase-9-deployment) | Deployment |
 
 ---
 
@@ -233,6 +234,50 @@
 - [x] "Your next workout plan" card on the customer dashboard (plan, reasons, cautions, trainer suggestion)
 - [x] Missing-profile state links to the profile form
 - [x] Commit
+
+[Back to top](#zuryo-fitness-booking-progress-tracker)
+
+---
+
+## Phase 9: Deployment
+
+### Before deploying
+- [x] Real timings live (for testing): `sessionMinutes: 60 (4)` in `booking.config.js`, `warningAfterMinutes: 55 (2)` in `session.config.js`
+- [x] `recommendation.config.js` back to `minCompletedSessions: 3` and `minRatings: 2`
+- [x] No test leftovers (temporary availability, debug logs)
+- [x] `npm run build` passes in the client, and `npm start` runs the backend
+- [x] `.env` is not committed, and `.env.sample` is current in both repos
+
+### MongoDB Atlas
+- [x] Cluster is running (Atlas is a replica set, which booking transactions need)
+- [x] Database user created with a strong password
+- [x] Network Access allows Render (`0.0.0.0/0` on the free tier)
+- [x] Connection string has the correct database name
+
+### Backend on Render
+- [x] Web service created from the backend repo (build `npm install`, start `npm start`)
+- [x] Env vars: `MONGODB_URI`, `JWT_SECRET`, `JWT_EXPIRES_IN`, `CLIENT_URL` (the Netlify URL, no trailing slash). Render sets `PORT`.
+- [x] `/api/health` returns `{ "status": "ok" }` on the live URL
+- [x] Startup log shows MongoDB connected, and the session worker starts with the server
+- [x] Free tier sleeps after inactivity handeled by betterstack uptime 
+
+### Frontend on Netlify
+- [x] Build command `npm run build`, publish directory `dist`
+- [x] Env var `VITE_API_URL=https://rajbhar-fitness-app-backend.onrender.com/api`
+- [x] `public/_redirects` contains `/* /index.html 200` so a refresh works
+- [x] Browser Network tab shows requests going to Render, not localhost
+- [x] No CORS errors (`CLIENT_URL` on Render matches the Netlify URL exactly)
+
+### Live data
+- [x] Seed the live database once (`npm run seed` with the production `MONGODB_URI`; it wipes the database)
+- [x] Demo logins work on the live URL (customer, trainer, admin)
+
+### Smoke test on the live URL
+- [x] Customer: login, profile, book scheduled and instant, pay by package and card, cancel, reschedule, history, workout plan
+- [x] Trainer: sessions, bell, start session, timer and buzzer, session notes, availability
+- [x] Admin: summary, bookings table, filters, details
+- [x] Deep link refresh works, and mobile width looks fine
+- [x] Commit (deploy config)
 
 [Back to top](#zuryo-fitness-booking-progress-tracker)
 
