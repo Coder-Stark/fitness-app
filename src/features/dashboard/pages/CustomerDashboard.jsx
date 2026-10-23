@@ -3,6 +3,7 @@ import { useAuth } from "../../auth/hooks/useAuth";
 import PackageSummaryCard from "../../packages/components/PackageSummaryCard";
 import ActiveSessionBanner from "../../sessions/components/ActiveSessionBanner";
 import ProfileSummaryCard from "../../fitness-profile/components/ProfileSummaryCard";
+import RecommendationCard from "../../recommendations/components/RecommendationCard";
 import { useFitnessProfile } from "../../fitness-profile/hooks/useFitnessProfile";
 import { isProfilePromptSkipped } from "../../fitness-profile/utils/profilePrompt";
 import { usePackageSummary } from "../../packages/hooks/usePackageSummary";
@@ -49,6 +50,7 @@ export default function CustomerDashboard() {
         </p>
       </section>
       <ProfileSummaryCard profile={profile} />
+      <RecommendationCard />
       <section className="mt-6 rounded-lg border border-gray-200 bg-white p-4">
         <div className="flex items-center justify-between">
           <h2 className="font-medium">Session history</h2>

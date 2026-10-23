@@ -14,6 +14,7 @@
 | [Phase 5](#phase-5-booking-management-and-notifications) | Booking management, notifications |
 | [Phase 6](#phase-6-session-timer) | Session timer |
 | [Phase 7](#phase-7-fitness-profile-session-records-admin-dashboard) | Fitness profile, session records, admin dashboard |
+| [Phase 8](#phase-8-trainer-availability-and-workout-recommendations) | Trainer availability, workout recommendations |
 
 ---
 
@@ -205,6 +206,32 @@
 - [x] Session history page with feedback form
 - [x] Trainer panel: customer assessment and session notes form
 - [x] Admin dashboard: summary cards, bookings table, filters, details row
+- [x] Commit
+
+[Back to top](#zuryo-fitness-booking-progress-tracker)
+
+---
+
+## Phase 8: Trainer Availability and Workout Recommendations
+
+### Backend
+- [x] `GET /api/recommendations/me` (rules-based, no LLM)
+- [x] `recommendation.config.js` (limits, progression and ease thresholds)
+- [x] `recommendation.catalog.js` (exercise library, labels, health keywords)
+- [x] `recommendation.rules.js` pure function: filters (equipment, level, health notes, age) and scores (goals, preferred types, intensity, recent exercises)
+- [x] History used: completed sessions, trainer's suggested next workout, ratings (progress and ease)
+- [x] Response includes reasons and cautions
+- [x] Customer-only access verified
+- [x] Postman folders tested: availability, recommendations
+- [x] Postman test timings and config test values restored
+- [x] Commit
+
+### Frontend
+- [x] `/trainer/availability` page (per-day ranges, day off, copy to all days, validation, reset)
+- [x] "Manage availability" link on the trainer dashboard
+- [x] Slots follow the trainer's saved hours (verified as a customer)
+- [x] "Your next workout plan" card on the customer dashboard (plan, reasons, cautions, trainer suggestion)
+- [x] Missing-profile state links to the profile form
 - [x] Commit
 
 [Back to top](#zuryo-fitness-booking-progress-tracker)

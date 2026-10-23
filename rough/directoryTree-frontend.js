@@ -41,6 +41,15 @@ src
  ┃ ┃ ┃ ┗ useAuth.js
  ┃ ┃ ┗ pages
  ┃ ┃ ┃ ┗ Login.jsx
+ ┃ ┣ availability
+ ┃ ┃ ┣ api
+ ┃ ┃ ┃ ┗ availability.api.js
+ ┃ ┃ ┣ components
+ ┃ ┃ ┃ ┗ DayScheduleRow.jsx
+ ┃ ┃ ┣ pages
+ ┃ ┃ ┃ ┗ MyAvailability.jsx
+ ┃ ┃ ┗ utils
+ ┃ ┃ ┃ ┗ availabilityForm.js
  ┃ ┣ booking
  ┃ ┃ ┣ api
  ┃ ┃ ┃ ┗ booking.api.js
@@ -118,6 +127,13 @@ src
  ┃ ┃ ┃ ┗ pricing.api.js
  ┃ ┃ ┗ components
  ┃ ┃ ┃ ┗ PriceBreakdown.jsx
+ ┃ ┣ recommendations
+ ┃ ┃ ┣ api
+ ┃ ┃ ┃ ┗ recommendation.api.js
+ ┃ ┃ ┣ components
+ ┃ ┃ ┃ ┗ RecommendationCard.jsx
+ ┃ ┃ ┗ hooks
+ ┃ ┃ ┃ ┗ useRecommendation.js
  ┃ ┣ session-records
  ┃ ┃ ┣ api
  ┃ ┃ ┃ ┗ sessionRecord.api.js

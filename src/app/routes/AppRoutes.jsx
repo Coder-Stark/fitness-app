@@ -12,6 +12,7 @@ import MyBookings from "../../features/bookings/pages/MyBookings";
 import FitnessProfilePage from "../../features/fitness-profile/pages/FitnessProfilePage";
 import SessionHistory from "../../features/session-records/pages/SessionHistory";
 import TrainerDashboard from "../../features/dashboard/pages/TrainerDashboard";
+import MyAvailability from "../../features/availability/pages/MyAvailability";
 import AdminDashboard from "../../features/dashboard/pages/AdminDashboard";
 
 export default function AppRoutes() {
@@ -37,6 +38,7 @@ export default function AppRoutes() {
       <Route element={<ProtectedRoute allowedRoles={[ROLES.TRAINER]} />}>
         <Route element={<DashboardLayout />}>
           <Route path="/trainer" element={<TrainerDashboard />} />
+          <Route path="/trainer/availability" element={<MyAvailability />} />
         </Route>
       </Route>
 
